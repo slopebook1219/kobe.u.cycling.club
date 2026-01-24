@@ -16,16 +16,17 @@ export default function PagePresentational({ album }: Props) {
 
   return (
     <main className="max-w-3xl mx-auto px-6 pt-24 pb-20">
-      <header className="mb-10 text-center">
-        <p className="text-sm text-gray-500 mb-2">{formatDate(album.date)}</p>
+      <header className="mb-2 text-center">
         <h1 className="text-3xl font-bold leading-tight">{album.title}</h1>
+        <p className="text-sm text-end text-gray-500 mb-2">{formatDate(album.date)}</p>
       </header>
-
-      <div className="relative aspect-square mb-14 rounded-2xl overflow-hidden">
+      <div className="relative aspect-square mb-5 overflow-hidden">
         <Image src={album.mainImage.url} alt={album.title} fill className="object-cover" />
       </div>
-      <p>以下詳細画像</p>
-
+      <div className="pb-3">
+        <p className="font-semibold pb-1">活動の概要</p>
+        <p className="text-[14px] px-3">{album.content}</p>
+      </div>
       {album.detailImages.length > 0 && (
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-10">
           {album.detailImages.map((image, index) => (
@@ -38,9 +39,6 @@ export default function PagePresentational({ album }: Props) {
               />
             </div>
           ))}
-          <div className="prose prose-gray max-w-none mb-16">
-            <p className="whitespace-pre-line">{album.content}</p>
-          </div>
         </section>
       )}
     </main>

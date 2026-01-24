@@ -5,17 +5,17 @@ import { MemberCard } from '@/app/member/component/_item/MemberCard';
 import { MemberCardForSp } from '@/app/member/component/_item/MemberCardForSp';
 
 export type Props = {
-  results: Member[];
+  membersByGrade: Record<string, Member[]>;
 };
 
-export default function PagePresentational({ results }: Props) {
+export default function PagePresentational({ membersByGrade }: Props) {
   return (
     <>
       <div className="hidden md:block">
-        <MemberCard results={results} />
+        <MemberCard membersByGrade={membersByGrade} />
       </div>
       <div className="block md:hidden">
-        <MemberCardForSp results={results} />
+        <MemberCardForSp membersByGrade={membersByGrade} />
       </div>
     </>
   );

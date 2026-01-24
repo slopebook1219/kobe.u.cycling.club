@@ -1,35 +1,56 @@
 import { Member } from '@/app/member/component/_type';
 import Link from 'next/link';
 import Image from 'next/image';
+import { gradeOrder } from '@/app/member/component/_contant';
+
 export type Props = {
-  results: Member[];
+  membersByGrade: Record<string, Member[]>;
 };
-export function MemberCardForSp({ results }: Props) {
+
+export function MemberCardForSp({ membersByGrade }: Props) {
   return (
-    <section className="max-w-6xl mx-auto py-12 px-2">
+    <section className="max-w-6xl mx-auto py-18 px-2">
       <div className="mb-10 text-center">
         <h2 className="text-2xl font-bold mb-3">メンバー紹介</h2>
-        <p className="text-gray-600 leading-relaxed">
-          私たちは現在<strong>{results.length}名</strong>で活動しています。
+        <p className="text-gray-600 leading-relaxed text-sm">
+          メンバー紹介です。
           <br />
-          学部・学年を越えて、それぞれの関心や強みを活かしながら、
-          日々さまざまな活動に取り組んでいます。
+          学年を越えて日々さまざまな活動に取り組んでいます。
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        {results.map((member) => (
-          <Link key={member.id} href={`/member/${member.id}`} className="block">
-            <div className="overflow-hidden border border-gray-300 bg-white hover:bg-gray-50 transition">
-              <div className="relative aspect-square">
-                <Image src={member.image.url} alt={member.name} fill className="object-cover" />
+
+      <div className="space-y-12">
+        {gradeOrder.map((grade) => {
+          const members = membersByGrade[grade];
+          if (!members || members.length === 0) return null;
+
+          return (
+            <section key={grade}>
+              <h3 className="text-lg font-semibold mb-4 text-center">{grade}回生</h3>
+
+              <div className="grid grid-cols-2 gap-4">
+                {members.map((member) => (
+                  <Link key={member.id} href={`/member/${member.id}`} className="block">
+                    <div className="overflow-hidden border border-gray-300 bg-white">
+                      <div className="relative aspect-square">
+                        <Image
+                          src={member.image.url}
+                          alt={member.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="text-center py-2">
+                        <p className="text-xs text-gray-500">{member.faculty}</p>
+                        <h4 className="text-sm font-semibold">{member.name}</h4>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
-              <div className="text-center">
-                <p className="text-sm text-gray-500">{member.faculty}</p>
-                <h3 className="mt-1 text-md font-semibold">{member.name}</h3>
-              </div>
-            </div>
-          </Link>
-        ))}
+            </section>
+          );
+        })}
       </div>
     </section>
   );

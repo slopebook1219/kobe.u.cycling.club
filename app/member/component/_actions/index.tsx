@@ -1,5 +1,6 @@
 import { client } from '@/lib/microcms';
-export async function fetchMemberContetns() {
+import type { Member } from '@/app/member/component/_type';
+export async function fetchMemberContetns(): Promise<Member[]> {
   const data = await client.get({
     endpoint: 'member',
   });

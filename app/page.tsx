@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Top } from '@/app/compoent/Top';
+import { Top } from '@/app/Top';
 import { fetchTopImage } from '@/app/compoent/_actions';
 
 export default async function Home() {
