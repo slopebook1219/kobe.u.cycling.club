@@ -18,7 +18,9 @@ export default function PagePresentational({ album }: Props) {
     <main className="max-w-3xl mx-auto px-6 pt-24 pb-20">
       <header className="mb-2 text-center">
         <h1 className="text-3xl font-bold leading-tight">{album.title}</h1>
-        <p className="text-sm text-end text-gray-500 mb-2">{formatDate(album.date)}</p>
+        <p className="text-sm text-end text-gray-500 mb-2">
+          {formatDate(album.start)}〜{formatDate(album.end)}
+        </p>
       </header>
       <div className="relative aspect-square mb-5 overflow-hidden">
         <Image src={album.mainImage.url} alt={album.title} fill className="object-cover" />

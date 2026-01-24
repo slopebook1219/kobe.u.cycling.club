@@ -27,7 +27,6 @@ export function MemberCardForSp({ membersByGrade }: Props) {
           return (
             <section key={grade}>
               <h3 className="text-lg font-semibold mb-4 text-center">{grade}回生</h3>
-
               <div className="grid grid-cols-2 gap-4">
                 {members.map((member) => (
                   <Link key={member.id} href={`/member/${member.id}`} className="block">

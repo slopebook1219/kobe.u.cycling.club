@@ -20,7 +20,8 @@ export type Album = {
   id: string;
   title: string;
   mainImage: Image;
-  date: string;
+  start: string;
+  end: string;
   dateImages: Image[];
   content: string;
 };

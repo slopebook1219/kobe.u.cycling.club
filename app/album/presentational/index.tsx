@@ -28,7 +28,9 @@ export default function PagePresentational({ results }: Props) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
-                <p className="text-xs text-gray-200 mb-1">{formatDate(album.date)}</p>
+                <p className="text-xs text-gray-200 mb-1">
+                  {formatDate(album.start)}〜{formatDate(album.end)}
+                </p>
                 <h3 className="text-lg font-semibold text-white leading-snug line-clamp-2">
                   {album.title}
                 </h3>
