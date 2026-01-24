@@ -5,3 +5,9 @@ export async function fetchMemberContetns() {
   });
   return data.contents;
 }
+export async function fetchAlbumContetns() {
+  const data = await client.get({
+    endpoint: 'album',
+  });
+  return data.contents;
+}

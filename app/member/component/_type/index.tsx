@@ -11,3 +11,16 @@ export type Member = {
   grade: string;
   comment: string;
 };
+type Image = {
+  url: string;
+  width: number;
+  height: number;
+};
+export type Album = {
+  id: string;
+  title: string;
+  mainImage: Image;
+  date: string;
+  detailImages: Image[];
+  content: string;
+};
