@@ -1,19 +1,11 @@
 import Image from 'next/image';
 import type { Album } from '@/app/member/component/_type';
-
+import { formatDate } from '@/app/compoent/_utils';
 export type Props = {
   album: Album;
 };
 
 export default function PagePresentational({ album }: Props) {
-  const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString('ja-JP', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
   return (
     <main className="max-w-3xl mx-auto px-6 pt-24 pb-20">
       <header className="mb-2 text-center">
