@@ -25,29 +25,29 @@ export default function HeaderWithMenu() {
       ></div>
       <div
         className={`
-          fixed inset-y-0 right-0 md:w-64 w-35 text-white z-40
+          fixed inset-y-0 right-0 md:w-64 w-45 text-white z-40
           transform transition-transform duration-500 ease-in-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
         <nav className="pt-20 ">
-          <ul>
-            <li className="md:py-4 py-2 md:px-4 cursor-pointer text-2xl md:text-3xl">
+          <ul className=" text-2xl md:text-3xl">
+            <li className="md:py-4 py-2 md:px-4 cursor-pointer">
               <Link href="/" onClick={handleMenuToggle}>
                 TOP
               </Link>
             </li>
-            <li className="md:py-4 py-2 md:px-4 cursor-pointer text-2xl md:text-3xl">
+            <li className="md:py-4 py-2 md:px-4 cursor-pointer ">
               <Link href="/member" onClick={handleMenuToggle}>
                 メンバー紹介
               </Link>
             </li>
-            <li className="md:py-4 py-2 md:px-4 cursor-pointer text-2xl md:text-3xl">
+            <li className="md:py-4 py-2 md:px-4 cursor-pointer">
               <Link href="/album" onClick={handleMenuToggle}>
                 アルバム
               </Link>
             </li>
-            <li className="md:py-4 py-2 md:px-4 cursor-pointer text-2xl md:text-3xl">
+            <li className="md:py-4 py-2 md:px-4 cursor-pointer">
               <Link
                 href="https://www.instagram.com/kobecycle_gram?igsh=a2V3eXRyZjRteWYy"
                 onClick={handleMenuToggle}
@@ -55,7 +55,7 @@ export default function HeaderWithMenu() {
                 instaはこちら
               </Link>
             </li>
-            <li className="md:py-4 py-2 md:px-4 cursor-pointer text-2xl md:text-3xl">
+            <li className="md:py-4 py-2 md:px-4 cursor-pointer">
               <Link href="https://x.com/kobe_u_cycling" onClick={handleMenuToggle}>
                 Xはこちら
               </Link>
