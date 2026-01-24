@@ -27,9 +27,9 @@ export default function PagePresentational({ album }: Props) {
         <p className="font-semibold pb-1">活動の概要</p>
         <p className="text-[14px] px-3">{album.content}</p>
       </div>
-      {album.detailImages.length > 0 && (
+      {album.dateImages.length > 0 && (
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-10">
-          {album.detailImages.map((image, index) => (
+          {album.dateImages.map((image, index) => (
             <div key={index} className="relative aspect-square rounded-xl overflow-hidden">
               <Image
                 src={image.url}

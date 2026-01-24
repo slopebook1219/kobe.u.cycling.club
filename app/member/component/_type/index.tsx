@@ -21,6 +21,6 @@ export type Album = {
   title: string;
   mainImage: Image;
   date: string;
-  detailImages: Image[];
+  dateImages: Image[];
   content: string;
 };
