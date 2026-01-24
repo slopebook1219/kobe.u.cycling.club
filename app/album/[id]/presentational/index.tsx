@@ -16,9 +16,16 @@ export default function PagePresentational({ album }: Props) {
           {formatDate(album.start)}〜{formatDate(album.end)}
         </p>
       </header>
-
-      <div className="relative aspect-square mb-5 overflow-hidden">
-        <Image src={album.mainImage.url} alt={album.title} fill className="object-cover" />
+      <div className="relative w-full mb-5 bg-red-500">
+        <div className="mb-4">
+          <Image
+            src={album.mainImage.url}
+            alt={album.title}
+            width={album.mainImage.width}
+            height={album.mainImage.height}
+            className="w-full h-auto object-contain"
+          />
+        </div>
       </div>
 
       <div className="pb-3">
@@ -31,16 +38,19 @@ export default function PagePresentational({ album }: Props) {
           <Link
             key={day.dayNumber}
             href={`/album/${album.id}/day/${day.dayNumber}`}
-            className="relative aspect-square overflow-hidden block"
+            className="group relative overflow-hidden rounded-2xl shadow-sm border border-gray-200 block"
           >
-            <Image
-              src={day.coverImage.url}
-              alt={`${album.title} ${day.dayNumber}日目`}
-              fill
-              className="object-cover"
-            />
-            <div className="absolute top-2 left-2 z-10 bg-black/70 text-white text-[16px] px-2 py-1 rounded">
-              {day.dayNumber}日目
+            <div className="relative aspect-square">
+              <Image
+                src={day.coverImage.url}
+                alt={`${album.title} ${day.dayNumber}日目`}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 p-5">
+              <h3 className="text-lg font-semibold text-white leading-snug">{day.dayNumber}日目</h3>
             </div>
           </Link>
         ))}
