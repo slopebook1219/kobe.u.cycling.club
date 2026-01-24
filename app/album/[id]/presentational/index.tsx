@@ -16,7 +16,7 @@ export default function PagePresentational({ album }: Props) {
           {formatDate(album.start)}〜{formatDate(album.end)}
         </p>
       </header>
-      <div className="relative w-full mb-5 bg-red-500">
+      <div className="relative w-full mb-5">
         <div className="mb-4">
           <Image
             src={album.mainImage.url}
