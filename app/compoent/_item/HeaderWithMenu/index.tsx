@@ -30,11 +30,11 @@ export default function HeaderWithMenu() {
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
-        <nav className="pt-20 ">
-          <ul className=" text-2xl md:text-3xl">
+        <nav className="pt-20 bg-white h-screen px-3">
+          <ul className="md:text-2xl md:text-3xl text-black">
             <li className="md:py-4 py-2 md:px-4 cursor-pointer">
               <Link href="/" onClick={handleMenuToggle}>
-                TOP
+                ホーム
               </Link>
             </li>
             <li className="md:py-4 py-2 md:px-4 cursor-pointer ">

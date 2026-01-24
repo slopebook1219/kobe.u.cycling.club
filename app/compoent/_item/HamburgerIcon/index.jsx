@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 export default function HamburgerIcon({ onClick, isOpen }) {
   return (
     <button
@@ -7,17 +7,17 @@ export default function HamburgerIcon({ onClick, isOpen }) {
     >
       <span
         className={`block h-[1px] w-8 rounded-full bg-gray-500 transition-transform duration-300 ease-in-out
-          ${isOpen ? "w-9 rotate-45 translate-y-2 bg-white" : ""}
+          ${isOpen ? 'w-9 rotate-45 translate-y-2 bg-black' : ''}
         `}
       ></span>
       <span
         className={`block h-[1px] w-8 rounded-full bg-gray-500 transition-opacity duration-300 ease-in-out
-          ${isOpen ? "opacity-0" : ""}
+          ${isOpen ? 'opacity-0' : ''}
         `}
       ></span>
       <span
         className={`block h-[1px] w-8 rounded-full bg-gray-500 transition-transform duration-300 ease-in-out
-          ${isOpen ? "w-9 -rotate-45 -translate-y-[10px] bg-white" : ""}
+          ${isOpen ? 'w-9 -rotate-45 -translate-y-[10px] bg-black' : ''}
         `}
       ></span>
     </button>
