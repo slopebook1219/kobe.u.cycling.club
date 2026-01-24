@@ -16,12 +16,21 @@ type Image = {
   width: number;
   height: number;
 };
+export type Section = {
+  image: Image;
+  content: string;
+};
+type Days = {
+  coverImage: Image;
+  section: Section;
+  dayNumber: string;
+};
 export type Album = {
   id: string;
   title: string;
   mainImage: Image;
   start: string;
   end: string;
-  dateImages: Image[];
   content: string;
+  days: Days[];
 };
