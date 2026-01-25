@@ -13,7 +13,10 @@ export default function PagePresentational({ results }: Props) {
         <h2 className="text-3xl font-bold mb-3">アルバム</h2>
         <p className="text-gray-500">私たちの日常を写真でお届けします</p>
       </div>
-
+      <div className="flex justify-center gap-4 mx-auto text-white mb-8">
+        <p className="bg-blue-500 px-4 py-2 rounded">年によっての検索</p>
+        <p className="bg-blue-500 px-4 py-2 rounded">文言での検索</p>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {results.map((album) => (
           <Link key={album.id} href={`/album/${album.id}`} className="group">
