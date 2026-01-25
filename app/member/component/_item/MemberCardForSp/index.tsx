@@ -34,14 +34,17 @@ export function MemberCardForSp({ membersByGrade }: Props) {
                       <div className="relative aspect-square">
                         <Image
                           src={member.image.url}
-                          alt={member.name}
+                          alt={member.sei}
                           fill
                           className="object-cover"
                         />
                       </div>
                       <div className="text-center py-2">
                         <p className="text-xs text-gray-500">{member.faculty}</p>
-                        <h4 className="text-sm font-semibold">{member.name}</h4>
+                        <p className="text-xs text-gray-500">{member.department}</p>
+                        <h4 className="text-sm font-semibold">
+                          {member.sei} {member.mei}
+                        </h4>
                       </div>
                     </div>
                   </Link>

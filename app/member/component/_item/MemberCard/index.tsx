@@ -35,14 +35,17 @@ export function MemberCard({ membersByGrade }: Props) {
                       <div className="relative aspect-square">
                         <Image
                           src={member.image.url}
-                          alt={member.name}
+                          alt={member.sei}
                           fill
                           className="object-cover p-5"
                         />
                       </div>
                       <div className="text-center">
-                        <p className="text-sm text-gray-500">所属：{member.faculty}</p>
-                        <h4 className="mt-1 text-lg font-semibold mb-4">{member.name}</h4>
+                        <p className="text-sm text-gray-500">{member.faculty}</p>
+                        <p className="text-sm text-gray-500">{member.department}</p>
+                        <h4 className="mt-1 text-lg font-semibold mb-4">
+                          {member.sei}　{member.mei}
+                        </h4>
                       </div>
                     </div>
                   </Link>

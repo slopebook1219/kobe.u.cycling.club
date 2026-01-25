@@ -1,6 +1,7 @@
 export type Member = {
   id: string;
-  name: string;
+  sei: string;
+  mei: string;
   image: {
     url: string;
     width: number;
@@ -8,6 +9,9 @@ export type Member = {
   };
   hometown: string;
   faculty: string;
+  department: string;
+  bike: string;
+  hobby: string;
   grade: string;
   comment: string;
 };
