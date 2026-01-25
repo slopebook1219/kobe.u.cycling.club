@@ -8,7 +8,7 @@ export type Props = {
 export default function PagePresentational({ member }: Props) {
   return (
     <main className="max-w-3xl md:max-w-2xl mx-auto px-8 md:pt-24 pt-20 py-12">
-      <div className="relative aspect-square mb-6 p-6">
+      <div className="relative mb-4 px-10">
         <Image
           src={member.image.url}
           alt={member.sei}
@@ -17,7 +17,7 @@ export default function PagePresentational({ member }: Props) {
           className="w-full h-auto object-contain"
         />
       </div>
-      <h1 className="text-2xl font-bold mb-4">
+      <h1 className="text-2xl font-bold mb-2">
         {member.sei} {member.mei}
       </h1>
       <div className="space-y-1 mb-6">
