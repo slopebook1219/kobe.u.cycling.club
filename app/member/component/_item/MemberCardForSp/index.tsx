@@ -11,7 +11,7 @@ export function MemberCardForSp({ membersByGrade }: Props) {
   return (
     <section className="max-w-6xl mx-auto py-18 px-2">
       <div className="mb-10 text-center">
-        <h2 className="text-2xl font-bold mb-3">メンバー紹介</h2>
+        <h2 className="text-3xl font-bold mb-3">メンバー紹介</h2>
         <p className="text-gray-600 leading-relaxed text-sm">
           メンバー紹介です。
           <br />
