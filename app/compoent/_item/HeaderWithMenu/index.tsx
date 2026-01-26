@@ -44,7 +44,7 @@ export default function HeaderWithMenu() {
             </li>
             <li className="md:py-4 py-2 md:px-4 cursor-pointer">
               <Link href="/album" onClick={handleMenuToggle}>
-                アルバム
+                活動記録
               </Link>
             </li>
             <li className="md:py-4 py-2 md:px-4 cursor-pointer">

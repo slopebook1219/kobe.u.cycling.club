@@ -27,7 +27,7 @@ export default function PagePresentational({ results }: Props) {
   return (
     <section className="max-w-6xl mx-auto px-4 py-16">
       <div className="mb-5 text-center">
-        <h2 className="text-3xl font-bold mb-3">アルバム</h2>
+        <h2 className="text-3xl font-bold mb-3">活動記録</h2>
         <p className="text-gray-500">私たちの日常を写真でお届けします</p>
       </div>
 
