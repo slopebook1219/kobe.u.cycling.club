@@ -7,7 +7,10 @@ export const metadata = {
     default: '神戸大学サイクリング部',
     template: '神戸大学サイクリング部',
   },
-  description: '神戸大学のサイクリン部のホームページです',
+  description: '神戸大学のサイクリング部のホームページです',
+  verification: {
+    google: 'KvWNGfmzKsf_3XpITugU_7fl0Yd-ENN8NTcQDL5rTIg',
+  },
 };
 
 const geistSans = Geist({
