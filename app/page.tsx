@@ -14,9 +14,6 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-  },
 };
 
 export default async function Home() {
