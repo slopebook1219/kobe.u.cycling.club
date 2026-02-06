@@ -9,10 +9,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: '神戸大学体育会サイクリング部',
     description: '神戸大学体育会サイクリング部の公式サイト。活動記録・メンバー紹介を掲載中。',
-    url: 'https://（ここに本番URL）',
+    url: 'https://kobe-u-cycling-club.vercel.app',
     siteName: '神戸大学体育会サイクリング部',
     locale: 'ja_JP',
     type: 'website',
+    images: [
+      {
+        url: '/meta.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 
