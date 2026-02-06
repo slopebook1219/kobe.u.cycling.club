@@ -50,7 +50,9 @@ export default function PagePresentational({ album }: Props) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             </div>
             <div className="absolute inset-x-0 bottom-0 p-5">
-              <h3 className="text-lg font-semibold text-white leading-snug">{day.dayNumber}日目</h3>
+              <h3 className="inline-block text-lg font-semibold text-white leading-snug border-b">
+                {day.dayNumber}日目
+              </h3>
             </div>
           </Link>
         ))}
