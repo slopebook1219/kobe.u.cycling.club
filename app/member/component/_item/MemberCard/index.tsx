@@ -35,7 +35,7 @@ export function MemberCard({ membersByGrade }: Props) {
                       <div className="relative aspect-square">
                         <Image
                           src={member.image.url}
-                          alt={member.sei}
+                          alt={member.sei || 'メンバーの紹介画像'}
                           fill
                           className="object-cover p-5"
                         />
