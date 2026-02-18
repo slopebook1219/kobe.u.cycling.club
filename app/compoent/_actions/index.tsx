@@ -4,6 +4,7 @@ export async function fetchTopImage() {
     endpoint: 'top',
     queries: {
       fields: 'image',
+      limit: 100,
     },
   });
   return data.contents;
