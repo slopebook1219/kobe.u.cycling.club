@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Member } from '@/app/member/component/_type';
+import type { Member } from '@/app/member/type';
 import { MemberCard } from '@/app/member/component/_item/MemberCard';
 import { MemberCardForSp } from '@/app/member/component/_item/MemberCardForSp';
 

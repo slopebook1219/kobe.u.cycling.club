@@ -4,28 +4,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 
-import type { Album } from '@/app/member/component/_type';
+import type { Album } from '@/app/album/type';
 import { formatDate } from '@/app/compoent/_utils';
 import { filterByYear, filterByWord } from '@/app/album/component/_utils';
 
-export type Props = {
-  results: Album[];
+type Props = {
+  albums: Album[];
 };
 
-export default function PagePresentational({ results }: Props) {
+export default function PagePresentational({ albums }: Props) {
   const [year, setYear] = useState('');
   const [word, setWord] = useState('');
 
   const years = useMemo(() => {
-    if (!results) return [];
-    const yearSet = results.filter((album) => album.start).map((album) => album.start.slice(0, 4));
+    if (!albums) return [];
+    const yearSet = albums.filter((album) => album.start).map((album) => album.start.slice(0, 4));
     return Array.from(new Set(yearSet)).sort((a, b) => b.localeCompare(a));
-  }, [results]);
+  }, [albums]);
 
   const filteredResults = useMemo(() => {
-    const byYear = filterByYear({ album: results || [], year });
+    const byYear = filterByYear({ album: albums || [], year });
     return filterByWord({ album: byYear, word });
-  }, [results, year, word]);
+  }, [albums, year, word]);
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-16">

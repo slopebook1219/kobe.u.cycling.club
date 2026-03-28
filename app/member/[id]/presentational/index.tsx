@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import type { Member } from '@/app/member/component/_type';
+import type { Member } from '@/app/member/type';
 
 export type Props = {
   member: Member;

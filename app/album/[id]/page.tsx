@@ -1,5 +1,5 @@
-import { fetchAlbumContetns } from '@/app/member/component/_actions';
-import type { Album } from '@/app/member/component/_type';
+import { fetchAlbumContetns } from '@/app/album/component/_actions';
+import type { Album } from '@/app/album/type';
 import PagePresentational from '@/app/album/[id]/presentational';
 
 type Props = {
@@ -17,7 +17,6 @@ export default async function AlbumDetail({ params }: Props) {
   if (!album) {
     return null;
   }
-
   const sortedAlbum: Album = {
     ...album,
     days: [...album.days].sort((a, b) => Number(a.dayNumber) - Number(b.dayNumber)),

@@ -1,4 +1,4 @@
-import type { Section } from '@/app/member/component/_type';
+import type { Section } from '@/app/album/type';
 import Image from 'next/image';
 
 export type Props = {

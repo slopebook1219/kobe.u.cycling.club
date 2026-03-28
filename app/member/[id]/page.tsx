@@ -1,6 +1,6 @@
 import { fetchMemberContetns } from '@/app/member/component/_actions';
 import { notFound } from 'next/navigation';
-import type { Member } from '@/app/member/component/_type';
+import type { Member } from '@/app/member/type';
 import PagePresentational from '@/app/member/[id]/presentational';
 
 type Props = {

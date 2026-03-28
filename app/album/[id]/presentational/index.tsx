@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Album } from '@/app/member/component/_type';
+import type { Album } from '@/app/album/type';
 import { formatDate } from '@/app/compoent/_utils';
 
 export type Props = {

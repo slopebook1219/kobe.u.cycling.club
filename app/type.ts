@@ -5,3 +5,9 @@ export type MainSlide = {
     height: number;
   };
 };
+
+export type Image = {
+  url: string;
+  width: number;
+  height: number;
+};
