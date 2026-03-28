@@ -8,6 +8,9 @@ export type Props = {
 };
 
 export default function PagePresentational({ album }: Props) {
+  if (!album) {
+    return null;
+  }
   return (
     <main className="max-w-3xl mx-auto px-6 pt-24 pb-20">
       <header className="mb-2 text-center">
@@ -19,7 +22,7 @@ export default function PagePresentational({ album }: Props) {
       <div className="relative w-full mb-5">
         <div className="mb-4">
           <Image
-            src={album.mainImage.url}
+            src={album.mainImage?.url ?? '/NoImage.jpg'}
             alt={album.title}
             width={album.mainImage.width}
             height={album.mainImage.height}
@@ -42,7 +45,7 @@ export default function PagePresentational({ album }: Props) {
           >
             <div className="relative aspect-square">
               <Image
-                src={day.coverImage.url}
+                src={day.coverImage?.url ?? '/NoImage.jpg'}
                 alt={`${album.title} ${day.dayNumber}日目`}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"

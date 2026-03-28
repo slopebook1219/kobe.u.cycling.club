@@ -14,8 +14,8 @@ export function PagePresentational({ sections, dayNumber }: Props) {
         <section key={i} className="mb-10">
           <div className="relative mb-2 overflow-hidden">
             <Image
-              src={section.image.url}
-              alt=""
+              src={section.image?.url ?? '/NoImage.jpg'}
+              alt={`${dayNumber}日目の画像`}
               width={section.image.width}
               height={section.image.height}
               className="w-full h-auto object-contain"

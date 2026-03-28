@@ -22,7 +22,7 @@ export default function PagePresentational({ albums }: Props) {
     return Array.from(new Set(yearSet)).sort((a, b) => b.localeCompare(a));
   }, [albums]);
 
-  const filteredResults = useMemo(() => {
+  const filteredAlbums = useMemo(() => {
     const byYear = filterByYear({ album: albums || [], year });
     return filterByWord({ album: byYear, word });
   }, [albums, year, word]);
@@ -58,27 +58,20 @@ export default function PagePresentational({ albums }: Props) {
           className="border rounded-[8px] px-3 py-2 w-60 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
       </div>
-
-      {filteredResults.length === 0 ? (
+      {filteredAlbums.length === 0 ? (
         <p className="text-center text-gray-500 mt-10">該当する活動記録がありません</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {filteredResults.map((album) => (
+          {filteredAlbums.map((album) => (
             <Link key={album.id} href={`/album/${album.id}`} className="group">
               <article className="relative overflow-hidden rounded-[16px] shadow-sm border border-gray-200 bg-white">
                 <div className="relative aspect-square bg-gray-100">
-                  {album.mainImage?.url ? (
-                    <Image
-                      src={album.mainImage.url}
-                      alt={album.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full text-gray-400">
-                      No Image
-                    </div>
-                  )}
+                  <Image
+                    src={album.mainImage?.url ?? '/NoImage.jpg'}
+                    alt={album.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 </div>
 
