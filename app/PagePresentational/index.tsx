@@ -1,19 +1,12 @@
 import Image from 'next/image';
 import { notoSerif } from '@/app/fonts';
-
-type Slide = {
-  image: {
-    url: string;
-    width: number;
-    height: number;
-  };
-};
+import type { MainSlide } from '@/app/type';
 
 type Props = {
-  images: Slide[];
+  images: MainSlide[];
 };
 
-export function Top({ images }: Props) {
+export function PagePresentational({ images }: Props) {
   const image = images[0];
   if (!image) return null;
 
