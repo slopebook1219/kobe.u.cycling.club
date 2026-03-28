@@ -16,8 +16,8 @@ export function PagePresentational({ sections, dayNumber }: Props) {
             <Image
               src={section.image?.url ?? '/NoImage.jpg'}
               alt={`${dayNumber}日目の画像`}
-              width={section.image.width}
-              height={section.image.height}
+              width={section.image?.width ?? 800}
+              height={section.image?.height ?? 600}
               className="w-full h-auto object-contain"
             />
           </div>
