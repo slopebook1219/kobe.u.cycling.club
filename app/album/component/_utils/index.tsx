@@ -1,4 +1,4 @@
-import type { Album } from '@/app/member/type';
+import type { Album } from '@/app/album/type';
 type ByYear = {
   album: Album[];
   year: string;
