@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Top } from '@/app/Top';
+import { PagePresentational } from '@/app/PagePresentational';
 import { fetchTopImage } from '@/app/compoent/_actions';
 
 export const metadata: Metadata = {
@@ -27,5 +27,5 @@ export default async function Home() {
   const images = await fetchTopImage();
   if (!images?.length) return null;
 
-  return <Top images={images} />;
+  return <PagePresentational images={images} />;
 }

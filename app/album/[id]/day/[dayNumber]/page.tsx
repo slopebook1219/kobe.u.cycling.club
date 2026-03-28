@@ -1,6 +1,6 @@
 import { PagePresentational } from '@/app/album/[id]/day/[dayNumber]/presentational';
-import { fetchAlbumContetns } from '@/app/member/component/_actions';
-import type { Album } from '@/app/member/component/_type';
+import { fetchAlbumContetns } from '@/app/album/component/_actions';
+import type { Album } from '@/app/album/type';
 import Image from 'next/image';
 
 type Props = {

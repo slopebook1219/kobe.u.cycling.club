@@ -4,28 +4,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 
-import type { Album } from '@/app/member/component/_type';
+import type { Album } from '@/app/album/type';
 import { formatDate } from '@/app/compoent/_utils';
 import { filterByYear, filterByWord } from '@/app/album/component/_utils';
 
-export type Props = {
-  results: Album[];
+type Props = {
+  albums: Album[];
 };
 
-export default function PagePresentational({ results }: Props) {
+export default function PagePresentational({ albums }: Props) {
   const [year, setYear] = useState('');
   const [word, setWord] = useState('');
 
   const years = useMemo(() => {
-    if (!results) return [];
-    const yearSet = results.filter((album) => album.start).map((album) => album.start.slice(0, 4));
+    if (!albums) return [];
+    const yearSet = albums.filter((album) => album.start).map((album) => album.start.slice(0, 4));
     return Array.from(new Set(yearSet)).sort((a, b) => b.localeCompare(a));
-  }, [results]);
+  }, [albums]);
 
-  const filteredResults = useMemo(() => {
-    const byYear = filterByYear({ album: results || [], year });
+  const filteredAlbums = useMemo(() => {
+    const byYear = filterByYear({ album: albums || [], year });
     return filterByWord({ album: byYear, word });
-  }, [results, year, word]);
+  }, [albums, year, word]);
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-16">
@@ -58,27 +58,20 @@ export default function PagePresentational({ results }: Props) {
           className="border rounded-[8px] px-3 py-2 w-60 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
       </div>
-
-      {filteredResults.length === 0 ? (
+      {filteredAlbums.length === 0 ? (
         <p className="text-center text-gray-500 mt-10">該当する活動記録がありません</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {filteredResults.map((album) => (
+          {filteredAlbums.map((album) => (
             <Link key={album.id} href={`/album/${album.id}`} className="group">
               <article className="relative overflow-hidden rounded-[16px] shadow-sm border border-gray-200 bg-white">
                 <div className="relative aspect-square bg-gray-100">
-                  {album.mainImage?.url ? (
-                    <Image
-                      src={album.mainImage.url}
-                      alt={album.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full text-gray-400">
-                      No Image
-                    </div>
-                  )}
+                  <Image
+                    src={album.mainImage?.url ?? '/NoImage.jpg'}
+                    alt={album.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 </div>
 

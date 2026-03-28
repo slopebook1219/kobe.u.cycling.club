@@ -1,6 +1,6 @@
 import { fetchMemberContetns } from '@/app/member/component/_actions';
 import PagePresentational from '@/app/member/presentational';
-import type { Member } from '@/app/member/component/_type';
+import type { Member } from '@/app/member/type';
 
 export default async function MemberPage() {
   const results = await fetchMemberContetns();

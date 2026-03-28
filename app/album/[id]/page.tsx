@@ -1,5 +1,5 @@
-import { fetchAlbumContetns } from '@/app/member/component/_actions';
-import type { Album } from '@/app/member/component/_type';
+import { fetchAlbumContetns } from '@/app/album/component/_actions';
+import type { Album } from '@/app/album/type';
 import PagePresentational from '@/app/album/[id]/presentational';
 
 type Props = {
@@ -10,18 +10,16 @@ type Props = {
 
 export default async function AlbumDetail({ params }: Props) {
   const { id } = await params;
-
+  //Albumsの中のから該当するものを取得する
   const albums = await fetchAlbumContetns();
   const album = albums.find((a: Album) => a.id === id);
-
   if (!album) {
     return null;
   }
-
+  //albumを何日目で新しいもの順に並び替えたもの
   const sortedAlbum: Album = {
     ...album,
     days: [...album.days].sort((a, b) => Number(a.dayNumber) - Number(b.dayNumber)),
   };
-
   return <PagePresentational album={sortedAlbum} />;
 }

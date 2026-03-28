@@ -1,4 +1,4 @@
-import { Member } from '@/app/member/component/_type';
+import { Member } from '@/app/member/type';
 import Link from 'next/link';
 import Image from 'next/image';
 import { gradeOrder } from '@/app/member/component/_contant';
