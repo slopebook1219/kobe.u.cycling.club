@@ -23,9 +23,9 @@ export function PagePresentational({ images }: Props) {
       </h1>
       <div className="max-w-xs md:max-w-4xl">
         <Image
-          src={image.image.url}
-          width={image.image.width}
-          height={image.image.height}
+          src={image.image?.url ?? '/NoImage.jpg'}
+          width={image.image?.width ?? 800}
+          height={image.image?.height ?? 600}
           alt="神戸大学体育会サイクリング部の活動風景"
           priority
         />
