@@ -1,34 +1,62 @@
+'use client';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { notoSerif } from '@/app/fonts';
-import type { MainSlide } from '@/app/type';
 
 type Props = {
-  images: MainSlide[];
+  mainSlides: {
+    image: {
+      url: string;
+      height: number;
+      width: number;
+    };
+  }[];
 };
 
-export function PagePresentational({ images }: Props) {
-  const image = images[0];
-  if (!image) return null;
+export function PagePresentational({ mainSlides }: Props) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  function nextSlide() {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % mainSlides.length);
+  }
+
+  function handleClick() {
+    nextSlide();
+  }
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 7000);
+    return () => clearInterval(timer);
+  }, [currentIndex, mainSlides.length]);
 
   return (
-    <section
-      className="min-h-screen flex flex-col items-center justify-center gap-6 px-4"
-      aria-labelledby="site-title"
-    >
+    <section className="min-h-screen flex flex-col justify-center items-center gap-6 px-4">
       <h1
-        id="site-title"
         className={`${notoSerif.className} text-2xl md:text-6xl font-semibold tracking-wide text-center leading-tight`}
       >
         神戸大学体育会サイクリング部
       </h1>
-      <div className="max-w-xs md:max-w-4xl">
-        <Image
-          src={image.image?.url ?? '/NoImage.jpg'}
-          width={image.image?.width ?? 800}
-          height={image.image?.height ?? 600}
-          alt="神戸大学体育会サイクリング部の活動風景"
-          priority
-        />
+      <div
+        onClick={handleClick}
+        className="relative w-full max-w-4xl aspect-video cursor-pointer overflow-hidden rounded-lg"
+      >
+        {mainSlides.map((item, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
+              index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+          >
+            <Image
+              src={item.image.url}
+              width={item.image.width}
+              height={item.image.height}
+              alt="活動風景"
+              className="w-full h-full object-cover"
+              priority={index === 0}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

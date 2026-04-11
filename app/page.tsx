@@ -24,8 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const images = await fetchTopImage();
-  if (!images?.length) return null;
+  const results = await fetchTopImage();
 
-  return <PagePresentational images={images} />;
+  return <PagePresentational mainSlides={results[0].slides} />;
 }
