@@ -30,20 +30,20 @@ export function PagePresentational({ mainSlides }: Props) {
   }, [currentIndex, mainSlides.length]);
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center gap-6 px-4">
+    <div className="relative h-screen w-full flex flex-col justify-center items-center gap-4">
       <h1
-        className={`${notoSerif.className} text-2xl md:text-6xl font-semibold tracking-wide text-center leading-tight`}
+        className={`${notoSerif.className} flex-col-reverse text-2xl md:text-6xl font-semibold tracking-wide text-center leading-tight`}
       >
         神戸大学体育会サイクリング部
       </h1>
       <div
         onClick={handleClick}
-        className="relative w-full max-w-4xl aspect-video cursor-pointer overflow-hidden"
+        className="relative w-full h-[40vh] md:h-[60vh] cursor-pointer overflow-hidde"
       >
         {mainSlides.map((item, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-2000 ease-in-out flex justify-center items-start md:px-10 px-4 ${
               index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
@@ -52,12 +52,12 @@ export function PagePresentational({ mainSlides }: Props) {
               width={item.image.width}
               height={item.image.height}
               alt="活動風景"
-              className="w-full h-full object-contain"
+              className="h-full w-full object-contain object-top"
               priority={index === 0}
             />
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
