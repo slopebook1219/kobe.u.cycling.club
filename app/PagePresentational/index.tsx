@@ -38,7 +38,7 @@ export function PagePresentational({ mainSlides }: Props) {
       </h1>
       <div
         onClick={handleClick}
-        className="relative w-full max-w-4xl aspect-video cursor-pointer overflow-hidden rounded-lg"
+        className="relative w-full max-w-4xl aspect-video cursor-pointer overflow-hidden"
       >
         {mainSlides.map((item, index) => (
           <div
@@ -52,7 +52,7 @@ export function PagePresentational({ mainSlides }: Props) {
               width={item.image.width}
               height={item.image.height}
               alt="活動風景"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               priority={index === 0}
             />
           </div>
