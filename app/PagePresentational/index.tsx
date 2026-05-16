@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { notoSerif } from '@/app/fonts';
+import { IndexIntroductions } from '@/app/compoent/_item/IndexIntroductions';
 
 type Props = {
   mainSlides: {
@@ -12,9 +13,18 @@ type Props = {
     };
   }[];
   aboutUs: string;
+  introductions: {
+    title: string;
+    image: {
+      url: string;
+      height: number;
+      width: number;
+    };
+    description: string;
+  }[];
 };
 
-export function PagePresentational({ mainSlides, aboutUs }: Props) {
+export function PagePresentational({ mainSlides, aboutUs, introductions }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   function nextSlide() {
@@ -53,7 +63,7 @@ export function PagePresentational({ mainSlides, aboutUs }: Props) {
                 src={item.image.url}
                 width={item.image.width}
                 height={item.image.height}
-                alt="活動風景"
+                alt="その他の紹介"
                 className="h-full w-full object-contain object-top"
                 priority={index === 0}
               />
@@ -65,7 +75,7 @@ export function PagePresentational({ mainSlides, aboutUs }: Props) {
           <span className="text-2xl text-neutral-500">↓</span>
         </div>
       </section>
-      <section className="min-h-screen w-full flex items-start justify-center py-10 px-8 md:px-0">
+      <section className=" w-full flex items-start justify-center py-10 px-8 md:px-0">
         <div className="md:max-w-4xl max-w-3xl w-full text-start">
           <h2 className={`${notoSerif.className} text-3xl md:text-5xl font-semibold mb-5`}>
             部紹介
@@ -75,6 +85,7 @@ export function PagePresentational({ mainSlides, aboutUs }: Props) {
           </p>
         </div>
       </section>
+      <IndexIntroductions introductions={introductions} />
     </div>
   );
 }
