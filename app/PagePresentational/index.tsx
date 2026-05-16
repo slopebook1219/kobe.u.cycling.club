@@ -60,6 +60,10 @@ export function PagePresentational({ mainSlides, aboutUs }: Props) {
             </div>
           ))}
         </div>
+        <div className="absolute bottom-10 flex flex-col items-center animate-bounce">
+          <p className="text-sm tracking-[0.3em] text-neutral-500 mb-1">SCROLL</p>
+          <span className="text-2xl text-neutral-500">↓</span>
+        </div>
       </section>
       <section className="min-h-screen w-full flex items-start justify-center py-10 px-8 md:px-0">
         <div className="md:max-w-4xl max-w-3xl w-full text-start">
